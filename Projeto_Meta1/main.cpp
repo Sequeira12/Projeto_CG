@@ -1,6 +1,6 @@
 /* ===================================================================================
- Meta 02 2022/2023 Computacao Grafica
- Bruno Eduardo Machado Sequeira
+ Meta 02 2021/2022 Computacao Grafica
+ Bruno Eduardo Machado Sequeira 2020235721
  ======================================================================================= */
 
 #define HEADER_H_
@@ -28,11 +28,8 @@ GLfloat theta = 0.;
 GLfloat vel = 1.;
 GLfloat pos[] = { 0., 0., 0.};
 
-
 int contador = 0;
-//------------------------------------------------------------ Sistema Coordenadas
 
-//.. janela
 GLfloat        SIZE = 10.0;    //.. Mundo  SIZE=coordenadas x=y=z
 
 
@@ -81,17 +78,17 @@ GLint     msec = 10;
 //------------------------------------------- coordenadas + normais + cores
 GLfloat tam = 0.5;
 static GLfloat vertices[] = {
-    //ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖ x=tam (Esquerda)
+    // x=tam (Esquerda)
     -tam,  -tam,  tam,    // 0
     -tam,   tam,  tam,    // 1
     -tam,   tam, -tam,    // 2
     -tam,  -tam, -tam,    // 3
-    //ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖ Direita
+    // Direita
     tam,  -tam,  tam,    // 4
     tam,   tam,  tam,    // 5
     tam,   tam, -tam,    // 6
     tam,  -tam, -tam,    // 7
-    //ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖ (Cima)
+    //(Cima)
     -tam,  tam,  tam,    // 8
     -tam,  tam, -tam,    // 9
     tam,  tam, -tam,    // 10
@@ -117,17 +114,17 @@ static GLfloat vertices[] = {
 
 
 static GLfloat normais[] = {
-    //ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖ x=tam (Esquerda)
+    // x=tam (Esquerda)
     -1.0,  0.0,  0.0,
     -1.0,  0.0,  0.0,
     -1.0,  0.0,  0.0,
     -1.0,  0.0,  0.0,
-    //ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖ x=tam (Direita)
+    // x=tam (Direita)
     1.0,  0.0,  0.0,
     1.0,  0.0,  0.0,
     1.0,  0.0,  0.0,
     1.0,  0.0,  0.0,
-    //ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖ y=tam (Cima)
+    // y=tam (Cima)
     0.0,  1.0,  0.0,
     0.0,  1.0,  0.0,
     0.0,  1.0,  0.0,
@@ -148,41 +145,7 @@ static GLfloat normais[] = {
     0.0, 0.0, 1.0,
     0.0, 0.0, 1.0,
 };
-static GLfloat cores[] = {
-    //ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖ x=tam (Esquerda) - Red
-    1.0,  0.0, 0.0,    // 0
-    1.0,  0.0, 0.0,    // 1
-    1.0,  1.0, 0.0,    // 2
-    1.0,  1.0, 0.0,    // 3
-    //ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖ y=tam (Cima) - Blue
-    1.0,  0.0, 1.0,    // 8
-    1.0,  0.0, 1.0,    // 9
-    0.0,  1.0, 1.0,    // 10
-    0.0,  0.5, 1.0,    // 11
-    //ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖ x=2*tam (Direita) - Green
-    0.0,  1.0, 1.0,    // 4
-    0.0,  1.0, 1.0,    // 5
-    0.0,  1.0, 0.0,    // 6
-    0.0,  1.0, 0.0  ,  // 7
-    //ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖ x=tam (Esquerda) - Red
-    
-    1.0,  0.0, 0.0,    // 0
-    1.0,  0.0, 0.0,    // 1
-    1.0,  1.0, 0.0,    // 2
-    1.0,  1.0, 0.0,    // 3
-    //ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖ y=tam (Cima) - Blue
-    1.0,  0.0, 1.0,    // 8
-    1.0,  0.0, 1.0,    // 9
-    0.0,  1.0, 1.0,    // 10
-    0.0,  0.5, 1.0,    // 11
-    //ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖ x=2*tam (Direita) - Green
-    0.0,  1.0, 1.0,    // 4
-    0.0,  1.0, 1.0,    // 5
-    0.0,  1.0, 0.0,    // 6
-    0.0,  1.0, 0.0    // 7
-    
-    
-};
+
 
 static GLuint esquerda[] = { 0, 1,  2,  3 };
 static GLuint  direita[] = { 4, 7,  6,  5 };
@@ -190,21 +153,19 @@ static GLuint     cima[] = { 8, 11, 10, 9 };
 static GLuint  bottom[] =  {12, 15, 14, 13 };
 static GLuint  back[] =     {16,19,18,17};
 static GLuint front[] = {20,23,22,21};
-
+GLfloat        SIZE = 10.0;  
 //================================================================================
 //=========================================================================== INIT
 void initialize(void)
 {
-    glClearColor(BLACK);        //ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖApagar
-    glEnable(GL_DEPTH_TEST);    //ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖProfundidade
-    glShadeModel(GL_SMOOTH);    //ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖInterpolacao de cores
+    glClearColor(BLACK);        //Apagar
+    glEnable(GL_DEPTH_TEST);    //Profundidade
+    glShadeModel(GL_SMOOTH);    //Interpolacao de cores
     
-    //glEnable(GL_CULL_FACE);        //ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖFaces visiveis
-    //glCullFace(GL_BACK);        //ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖMostrar so as da frente
     
-    glVertexPointer(3, GL_FLOAT, 0, vertices);    //ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖPosicoes
+    glVertexPointer(3, GL_FLOAT, 0, vertices);    //Posicoes
     glEnableClientState(GL_VERTEX_ARRAY);
-    glNormalPointer(GL_FLOAT, 0, normais);        //ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖNormais
+    glNormalPointer(GL_FLOAT, 0, normais);        //Normais
     glEnableClientState(GL_NORMAL_ARRAY);
     
     
@@ -247,10 +208,6 @@ void drawObservador_Onde()
 }
 
 
-
-
-
-
 void DrawCubo(){
     glDrawElements(GL_POLYGON, 4, GL_UNSIGNED_INT, esquerda);
     glDrawElements(GL_POLYGON, 4, GL_UNSIGNED_INT, direita);
@@ -259,12 +216,6 @@ void DrawCubo(){
     glDrawElements(GL_POLYGON, 4, GL_UNSIGNED_INT, back);
     glDrawElements(GL_POLYGON, 4, GL_UNSIGNED_INT, front);
 }
-
-
-
-
-
-
 
 
 //======================================
@@ -277,8 +228,6 @@ void drawScene() {
         if (altura < -1) incALT = -incALT;
     }
     glPushMatrix();
-    
-    
     glTranslatef(centrox + pos[0], altura+pos[1], pos[2]);
     glRotatef(rotacao, 0.0, 1.0, 0.0);
     glScalef(2.5, 2.0, 2.5);
@@ -290,13 +239,9 @@ void drawScene() {
     glScalef(2, 1, 1);
     DrawCubo();
     glPopMatrix();
-    
-    
-    
     glColor3f(0.52,0.8,0.98);
     glPushMatrix();
     glTranslatef(0.25, tam+0.2, 0);
-    
     glScalef(0.05, 0.9, 0.9);
     DrawCubo();
     glPopMatrix();
@@ -310,8 +255,8 @@ void drawScene() {
     DrawCubo();
     glPopMatrix();
     
-    
-    //PRIMEIRA RODA
+
+    // RODAS
     glPushMatrix();
     glColor3f(0.44,0.48,0.37);
     glTranslatef(-0.5, -0.75 ,-tam);
@@ -319,7 +264,6 @@ void drawScene() {
     glRotatef(-AnguloRotacao, 0, 0, 1);
     DrawCubo();
     glPopMatrix();
-    
     
     
     glPushMatrix();
@@ -330,11 +274,7 @@ void drawScene() {
     DrawCubo();
     glPopMatrix();
     
-    
-    
-    
-    
-    
+ 
     glPushMatrix();
     glColor3f(0.44,0.48,0.37);
     glTranslatef(0.5, -0.75 ,-tam);
@@ -350,10 +290,6 @@ void drawScene() {
     glRotatef(-AnguloRotacao, 0, 0, 1);
     DrawCubo();
     glPopMatrix();
-    
-    
-    
-    
     
     //PORTA
     glPushMatrix();
@@ -380,8 +316,7 @@ void drawScene() {
     DrawCubo();
     glPopMatrix();
     
-    
-    
+ 
     glPushMatrix();
     glTranslatef(0, Trans, 0);
     glColor3f(0.52,0.8,0.98);
@@ -397,7 +332,6 @@ void drawScene() {
     DrawCubo();
     glPopMatrix();
     
-    
     glPushMatrix();
     glColor3f(0,0,0);
     glTranslatef(-0.85, 0.3, -tam);
@@ -405,13 +339,7 @@ void drawScene() {
     DrawCubo();
     glPopMatrix();
     
-    
-    
-    
-    
-    
-    
-    
+ 
     //PORTA
     glPushMatrix();
     glColor3f(0.83,0.83,0.47);
@@ -419,7 +347,6 @@ void drawScene() {
     glScalef(0.5, 1, 0.1);
     DrawCubo();
     glPopMatrix();
-    
     
     glPushMatrix();
     glTranslatef(0, Trans, 0);
@@ -429,7 +356,6 @@ void drawScene() {
     DrawCubo();
     glPopMatrix();
     
-    
     //MAOZEIRA
     glPushMatrix();
     glColor3f(0,0,0);
@@ -437,7 +363,6 @@ void drawScene() {
     glScalef(0.1, 0.1, 0.15);
     DrawCubo();
     glPopMatrix();
-    
     
     glPushMatrix();
     glColor3f(0,0,0);
@@ -455,7 +380,6 @@ void drawScene() {
     DrawCubo();
     glPopMatrix();
     
-    
     glPushMatrix();
     glTranslatef(0, Trans, 0);
     glColor3f(0.52,0.8,0.98);
@@ -464,23 +388,14 @@ void drawScene() {
     DrawCubo();
     glPopMatrix();
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    //mala
+
+    //Mala
     glPushMatrix();
     glColor3f(0.83,0.83,0.47);
     glTranslatef(-0.95, 0.5, 0);
     glScalef(0.15, 1, 0.9);
     DrawCubo();
     glPopMatrix();
-    
     
     glPushMatrix();
     glColor3f(0,0,0);
@@ -490,14 +405,12 @@ void drawScene() {
     glPopMatrix();
     
     //Matriculas
-    
     glPushMatrix();
     glColor3f(1,0,1);
     glTranslatef(-1,-0.3, 0);
     glScalef(0.05,0.15, 0.40);
     DrawCubo();
     glPopMatrix();
-    
     
     glPushMatrix();
     glColor3f(1,0,1);
@@ -507,17 +420,13 @@ void drawScene() {
     glPopMatrix();
     
     
-    
-    
-    // Luzese
-    
+    // Luzes
     glPushMatrix();
     glColor3f(1,0,0);
     glTranslatef(-1,-0.15, -0.4);
     glScalef(0.05,0.15, 0.1);
     DrawCubo();
     glPopMatrix();
-    
     
     glPushMatrix();
     glColor3f(1,0,0);
@@ -533,10 +442,7 @@ void drawScene() {
     DrawCubo();
     glPopMatrix();
     
-    
-    
-    
-    
+
     // LUZES PISCAS
     
     glPushMatrix();
@@ -546,7 +452,6 @@ void drawScene() {
     DrawCubo();
     glPopMatrix();
     
-    
     glPushMatrix();
     glColor3f(1,0.64,0);
     glTranslatef(-1,-0.3, 0.4);
@@ -554,16 +459,13 @@ void drawScene() {
     DrawCubo();
     glPopMatrix();
     
-    
-    
-    
+
     glPushMatrix();
     glColor3f(1,0.64,0);
     glTranslatef(1,-0.3, -0.4);
     glScalef(0.05,0.15, 0.1);
     DrawCubo();
     glPopMatrix();
-    
     
     glPushMatrix();
     glColor3f(1,0.64,0);
@@ -609,7 +511,7 @@ void display(void) {
     
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-
+    //1º viewPort
     glViewport(0,0, 0.25*wScreen, 0.25*hScreen);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
@@ -617,29 +519,20 @@ void display(void) {
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     gluLookAt(0, 30,0, 0, 0, 0, 0, 0, -1);
-    
-   
     drawEixos();
-    
     drawScene();
     
-   
+   //2º viewPort e Principal
     glViewport(0.25*wScreen,0, wScreen, hScreen);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluPerspective(angZoom+40,(float)wScreen/hScreen, 0.1, 9999);
-    
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     gluLookAt(obsP[0], obsP[1], obsP[2], xPointLook, yPointLook, zPointLook, 0, 1, 0);
-    
-    //ÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖÖObjectos
     drawEixos();
-    
     drawScene();
-    
-    
-    
+
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Actualizacao
     glutSwapBuffers();
 }
@@ -679,11 +572,11 @@ void keyboard(unsigned char key, int x, int y) {
             glutPostRedisplay();
             break;
         case 'd': case 'D':
-            rotacao = rotacao - 2.5;
+            rotacao = rotacao - 4.5;
             glutPostRedisplay();
             break;
         case 'k':case 'K':
-            AnguloRotacao = AnguloRotacao + 2.5;
+            AnguloRotacao = AnguloRotacao + 4.5;
             glutPostRedisplay();
             break;
             
@@ -792,7 +685,7 @@ void teclasNotAscii(int key, int x, int y)
 
 
 //======================================================= MAIN
-//======================================================= MAIN
+
 int main(int argc, char** argv) {
     
     glutInit(&argc, argv);
